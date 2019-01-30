@@ -24,7 +24,7 @@ function parcels(bikerID) {
   });
 }
 
-function changeAssignee(shipmentID, newAssigneeID) {
+function changeAssigneeID(shipmentID, newAssigneeID) {
     return new Promise(function(resolve, reject) {
       let index = allShipments.findIndex((item)=> item.id === Number(shipmentID));
         
@@ -40,4 +40,37 @@ function changeAssignee(shipmentID, newAssigneeID) {
     });
 }
 
-module.exports = {shipments, changeAssignee, parcels};
+function changePickupTime(shipmentID, newPickup) {
+    return new Promise(function(resolve, reject) {
+      let index = allShipments.findIndex((item)=> item.id === Number(shipmentID));
+        
+      if(index > -1){
+        allShipments[index].pickup = Number(newPickup);
+        if(allShipments[index].status === "ASSIGNED"){
+          allShipments[index].status = "PICKED_UP";
+        }
+        resolve("success");
+      }else{
+        reject("err");
+      }
+    });
+}
+
+function changeDeliveryTime(shipmentID, newDelivery) {
+    return new Promise(function(resolve, reject) {
+      let index = allShipments.findIndex((item)=> item.id === Number(shipmentID));
+        
+      if(index > -1){
+        allShipments[index].delivery = Number(newDelivery);
+        if(allShipments[index].status === "PICKED_UP"){
+          allShipments[index].status = "DELIVERED";
+        }
+        resolve("success");
+      }else{
+        reject("err");
+      }
+    });
+}
+
+module.exports = { shipments, changeAssigneeID, 
+                   parcels, changeDeliveryTime, changePickupTime};

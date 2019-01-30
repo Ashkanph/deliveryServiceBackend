@@ -22,9 +22,11 @@ router.get('/shipments', guard, (req, res, next) => {
 
 // Change a shipment
 router.post('/shipments/:id', guard, (req, res, next) => {
-    
+    console.log("req.query.newdelivery: ", req.query.newdelivery);
+    console.log("req.query.newAssigneeID: ", req.query.newAssigneeID);
+    console.log("req.query.newpickup: ", req.query.newpickup);
     if(req.query.newAssigneeID){
-        Shipment.changeAssignee(req.params.id, req.query.newAssigneeID).then(
+        Shipment.changeAssigneeID(req.params.id, req.query.newAssigneeID).then(
             (result) => {
                 res.json(Object.assign(req.base, {
                     status: 0,
@@ -32,6 +34,32 @@ router.post('/shipments/:id', guard, (req, res, next) => {
             },
             (err) => {
                next(new Error("5"));
+               return;
+            });
+    }
+    
+    if(req.query.newpickup){
+        Shipment.changePickupTime(req.params.id, req.query.newpickup).then(
+            (result) => {
+                res.json(Object.assign(req.base, {
+                    status: 0,
+                }));
+            },
+            (err) => {
+               next(new Error("6"));
+               return;
+            });
+    }
+    
+    if(req.query.newdelivery){
+        Shipment.changeDeliveryTime(req.params.id, req.query.newdelivery).then(
+            (result) => {
+                res.json(Object.assign(req.base, {
+                    status: 0,
+                }));
+            },
+            (err) => {
+               next(new Error("7"));
                return;
             });
     }
