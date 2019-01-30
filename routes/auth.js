@@ -6,7 +6,7 @@ const encryption    = require('../helpers/encryption');
 
 module.exports = router;
 
-router.post('/login', (req, res, next) => {
+router.post("/login", (req, res, next) => {
     
     if(!req.query.username || !req.query.password){
         //"Username and password are required."
@@ -41,3 +41,11 @@ router.post('/login', (req, res, next) => {
         }
     )
 });
+
+router.get('/logout', function(req, res){
+    req.logout();
+    res.json(Object.assign(req.base, {
+        status: 0,
+        message: "Successful logout."
+    }));
+  });
