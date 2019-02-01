@@ -20,8 +20,7 @@ module.exports = (app) => {
     app.use(passport.initialize());
 
     app.use((req, res, next) => {
-        var startCpuUsage = process.cpuUsage();
-
+        // var startCpuUsage = process.cpuUsage();
         // res.on('finish', () => {
         //     console.log(process.memoryUsage());
         //     console.log(process.cpuUsage(startCpuUsage));

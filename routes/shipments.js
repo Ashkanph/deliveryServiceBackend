@@ -22,9 +22,6 @@ router.get('/shipments', guard, (req, res, next) => {
 
 // Change a shipment
 router.post('/shipments/:id', guard, (req, res, next) => {
-    console.log("req.query.newdelivery: ", req.query.newdelivery);
-    console.log("req.query.newAssigneeID: ", req.query.newAssigneeID);
-    console.log("req.query.newpickup: ", req.query.newpickup);
     if(req.query.newAssigneeID){
         Shipment.changeAssigneeID(req.params.id, req.query.newAssigneeID).then(
             (result) => {

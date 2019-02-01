@@ -11,21 +11,6 @@ function comparePassword(receivedPassword, pw, cb) {
 };
 
 function findUser(user) {
-    // // I needed thi to create new password for users mockup data
-    // for(let i=1; i<11; i++){
-    //     let upw = "biker" + i + "pw";
-    //     bcrypt.genSalt(10, function(err, salt) {
-    //         if (err) {
-    //             console.log('error1');
-    //         }
-    //         bcrypt.hash(upw, salt, function(err, hash) {
-    //             if (err) {
-    //                 console.log('error2: ', err);
-    //             }
-    //             console.log('biker' + i +"pw: ", hash);
-    //         });
-    //     });
-    // }
 
     return new Promise(function(resolve, reject) {
         let userIndex = users.findIndex((item)=> item.username === user.username);
