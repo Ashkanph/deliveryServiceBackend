@@ -22,6 +22,17 @@ A nodeJS backend application to serve a REST delivery service. The frontend of t
             nodemon bin/www
         ```
 
+## Mockup data
+The application uses mockup data for shipments and users which are in the folder of `mockupData`. 
+
+* For creating new mockup data, use this code:
+    ```bash
+        # It is necessary to cd in the directory, to create the mockup data files in the appropriate directory.
+        cd  mockupData
+        node createMockupShipments.js
+        node createMockupUsers.js
+    ```
+
 ## To do
   * Why not using websocket instead? It is easier and more suitable for this purpose.
     * Or at least use `long polling` to get the live data
