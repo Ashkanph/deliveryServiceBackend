@@ -1,5 +1,5 @@
 
-A nodeJS backend application to serve a REST delivery service. The frontend of this application can be found at [this address](https://github.com/Ashkanph/deliveryServiceFrontend).
+A nodeJS backend application to serve a REST delivery service. The frontend of this application can be found at [this address](https://github.com/Ashkanph/deliveryServiceFrontend). The description of the project can be found in this document: [HR-FrontendDeveloperTest-201118-1829-362.pdf](https://github.com/Ashkanph/deliveryServiceFrontend/files/2902485/HR-FrontendDeveloperTest-201118-1829-362.pdf)
 
 ## Usage
 
